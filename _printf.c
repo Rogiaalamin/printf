@@ -7,38 +7,20 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int counter = 0;
-
+	int str;
+	
+	if (format == NULL)
+	{
+	return (-1);
+	str = _strlen(format);
+	}
+	if (str <= 0)
+	{
+	return (0);
+	}
 	va_start(args, format);
-while (*format)
-{	
-if (*format == '%')
-format++;
-if (*format == '%')
-{
-write(1, format, 1);
-counter++;
+	_putchar(-1);
+	va_end(args);
+	return (str);
 }
-else if (*format == 'c')
-{
-int ch = va_arg(args, int);
-write(1, &ch, 1);
-counter++;
-}
-else if (*format == 's')
-{
-char *str = va_arg(args, char*);
-int str_len = strlen(str);
-while (*str)
-{
-write(1, str, str_len);
-counter++;
-if else (write(1, *format, 1))
-counter++;
-}
-	format++;
-}
-va_end(args);
-	return (counter);
-}
-}
+
